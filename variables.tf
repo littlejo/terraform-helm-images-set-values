@@ -14,3 +14,9 @@ variable "pre_value" {
   type        = string
   default     = ""
 }
+
+variable "type" {
+  description = "Type of helm config"
+  type        = string
+  default     = "default"
+}
