@@ -13,8 +13,15 @@ locals {
     { name = "${var.pre_value}.digest", value = "false" },
   ] : []
 
+  set_values_cilium = local.image != {} ? [
+    { name = "${var.pre_value}.repository", value = "${local.image.url}/${local.image.image}" },
+    { name = "${var.pre_value}.tag", value = local.image.tag },
+    { name = "${var.pre_value}.useDigest", value = "false" },
+  ] : []
+
   set_values = {
     default = local.set_values_default
     nginx   = local.set_values_nginx
+    cilium  = local.set_values_cilium
   }
 }
