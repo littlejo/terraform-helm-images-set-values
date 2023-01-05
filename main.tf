@@ -14,9 +14,7 @@ locals {
   ] : []
 
   set_values_cilium = local.image != {} ? [
-    { name = "${var.pre_value}.repository", value = "${local.image.url}/${local.image.image}" },
-    { name = "${var.pre_value}.tag", value = local.image.tag },
-    { name = "${var.pre_value}.useDigest", value = "false" },
+    { name = "${var.pre_value}.override", value = var.repo_url },
   ] : []
 
   set_values = {
